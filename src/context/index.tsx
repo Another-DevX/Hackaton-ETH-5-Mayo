@@ -18,7 +18,11 @@ if (!projectId) throw new Error('Project ID is not defined');
 createWeb3Modal({
   wagmiConfig: config,
   projectId,
-  enableAnalytics: true, // Optional - defaults to your Cloud configuration
+  enableAnalytics: true,
+  themeVariables: {
+    '--w3m-accent': '#d97368',
+    '--w3m-color-mix': '#c85d51',
+  },
 });
 
 export default function Web3Modal({
