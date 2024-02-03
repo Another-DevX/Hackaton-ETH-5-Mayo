@@ -8,8 +8,10 @@ import {
   MakeOffer,
   OfferData,
   HomeCountDown,
+  SkeletonHome,
 } from '@/components';
 import { Address } from 'viem';
+import { useMock } from '@/mocks';
 
 const invoices = Array.from({ length: 10 }, (_, i) => ({
   position: i + 1,
@@ -29,6 +31,10 @@ const dataMock = {
 };
 
 function Page() {
+  const isLoading = useMock();
+
+  if (isLoading) return <SkeletonHome />;
+
   return (
     <motion.main
       initial={{ opacity: 0 }}
