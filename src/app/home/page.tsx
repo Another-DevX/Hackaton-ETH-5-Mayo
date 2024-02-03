@@ -29,8 +29,8 @@ function Page() {
       <HomeCountDown futureTimestamp={1733200773000} />
       <HomeTable invoices={invoices} />
       <div className='homeSidebar flex flex-col justify-center items-center gap-4 h-full'>
-        <MakeOffer />
         <OfferData />
+        <MakeOffer />
       </div>
     </motion.main>
   );
