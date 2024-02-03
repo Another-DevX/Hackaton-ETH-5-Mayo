@@ -2,23 +2,19 @@ import React from 'react';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Invoice } from '@/types';
+import { useNumbers, useWeb3 } from '@/hooks';
 
-function HomeTable({ invoices }: { invoices: any }) {
+function HomeTable({ invoices }: { invoices: Invoice[] }) {
+  const { formatFiat } = useNumbers();
+  const { formatAddress } = useWeb3();
+
   return (
     <Card className='homeTable h-full overflow-auto'>
       <CardHeader>
@@ -29,14 +25,20 @@ function HomeTable({ invoices }: { invoices: any }) {
           <TableHeader>
             <TableRow>
               <TableHead className='w-[100px]'>Position</TableHead>
-              <TableHead>Value</TableHead>
+              <TableHead>Value per tick</TableHead>
+              <TableHead>Ticks</TableHead>
+              <TableHead>Address</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {invoices.map((invoice) => (
-              <TableRow key={invoice.invoice}>
-                <TableCell className='font-medium'>{invoice.invoice}</TableCell>
-                <TableCell>{invoice.paymentStatus}</TableCell>
+              <TableRow key={invoice.position}>
+                <TableCell className='font-medium'>
+                  {invoice.position}
+                </TableCell>
+                <TableCell>{formatFiat(invoice.value)}</TableCell>
+                <TableCell>{invoice.ticks}</TableCell>
+                <TableCell>{formatAddress(invoice.address)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
