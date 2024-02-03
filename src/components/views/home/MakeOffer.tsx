@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import {
   Card,
@@ -20,9 +19,13 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
+import { useAccount } from 'wagmi';
+import { Address } from 'viem';
+import { AuctionHouseAbi } from '@/constants';
+import { useMakeOffer } from '@/hooks/home/useMakeOffer';
 const something = {
-  value: 100,
-  ticks: 10,
+  value: 1,
+  ticks: 1,
 };
 type Inputs = {
   valuePerTick: number;
@@ -30,9 +33,22 @@ type Inputs = {
 };
 
 function MakeOffer() {
+  const { writeAsync } = useMakeOffer();
+  const { address } = useAccount();
   const form = useForm<Inputs>();
-  function onSubmit(values: Inputs) {
-    console.log(values);
+  async function onSubmit(values: Inputs) {
+    try {
+      await writeAsync({
+        args: [
+          values.valuePerTick * 10 ** 6,
+          values.amountOfTicks,
+          address,
+          Date.now() + 1000 * 600,
+        ],
+      });
+    } catch (e) {
+      console.error('Error making offer', e);
+    }
   }
   return (
     <Card className='w-full h-full'>
