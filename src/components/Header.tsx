@@ -2,8 +2,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 function Header() {
+  const path = usePathname();
+  const isActive = (currentPath: string) => {
+    return path === currentPath;
+  };
   return (
     <nav className='backdrop-blur-md fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600'>
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
@@ -51,8 +56,12 @@ function Header() {
             <li>
               <Link
                 href='/home'
-                className='block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500'
-                aria-current='page'
+                className={`block py-2 px-3 rounded md:p-0 ${
+                  isActive('/home')
+                    ? 'text-white bg-blue-700 md:text-blue-700 md:bg-transparent'
+                    : 'text-gray-900 hover:bg-gray-100 dark:text-white md:hover:bg-transparent'
+                }`}
+                aria-current={isActive('/home') ? 'page' : undefined}
               >
                 Home
               </Link>
@@ -60,14 +69,32 @@ function Header() {
             <li>
               <Link
                 href='/user'
-                className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'
+                className={`block py-2 px-3 rounded md:p-0 ${
+                  isActive('/user')
+                    ? 'text-white bg-blue-700 md:text-blue-700 md:bg-transparent'
+                    : 'text-gray-900 hover:bg-gray-100 dark:text-white md:hover:bg-transparent'
+                }`}
+                aria-current={isActive('/user') ? 'page' : undefined}
               >
                 User panel
               </Link>
             </li>
+            <li>
+              <Link
+                href='/auction'
+                className={`block py-2 px-3 rounded md:p-0 ${
+                  isActive('/auction')
+                    ? 'text-white bg-blue-700 md:text-blue-700 md:bg-transparent'
+                    : 'text-gray-900 hover:bg-gray-100 dark:text-white md:hover:bg-transparent'
+                }`}
+                aria-current={isActive('/auction') ? 'page' : undefined}
+              >
+                Create auction
+              </Link>
+            </li>
           </ul>
         </div>
-        <w3m-button  />
+        <w3m-button />
       </div>
     </nav>
   );
