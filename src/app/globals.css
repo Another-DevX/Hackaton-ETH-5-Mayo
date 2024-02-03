@@ -77,10 +77,10 @@
   .homeContainer {
     grid-template-areas:
       'select select'
+      'countdown sidebar'
       'table sidebar';
-
-    grid-template-rows: auto 95%;
-    grid-template-columns: 60% 40%;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .homeSelect {
@@ -91,5 +91,8 @@
   }
   .homeSidebar {
     grid-area: sidebar;
+  }
+  .homeCountdown {
+    grid-area: countdown;
   }
 }

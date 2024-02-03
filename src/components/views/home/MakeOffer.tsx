@@ -10,7 +10,7 @@ import React from 'react';
 
 function MakeOffer() {
   return (
-    <Card className='w-full'>
+    <Card className='w-full h-full'>
       <CardHeader>
         <CardTitle>Card Title</CardTitle>
         <CardDescription>Card Description</CardDescription>

@@ -35,7 +35,7 @@ function OfferData() {
     console.log(values);
   }
   return (
-    <Card className='w-full '>
+    <Card className='w-full h-full'>
       <CardHeader>
         <CardTitle>Make an offer</CardTitle>
         <CardDescription>

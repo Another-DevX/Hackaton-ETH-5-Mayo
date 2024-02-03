@@ -20,10 +20,12 @@ import {
 
 function HomeTable({ invoices }: { invoices: any }) {
   return (
-    <Card className='homeTable'>
-      <CardContent>
-        <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
+    <Card className='homeTable h-full overflow-auto'>
+      <CardHeader>
+        <CardTitle>Recent Invoices</CardTitle>
+      </CardHeader>
+      <CardContent className='h-full overflow-y-scroll'>
+        <Table className='h-full'>
           <TableHeader>
             <TableRow>
               <TableHead className='w-[100px]'>Position</TableHead>

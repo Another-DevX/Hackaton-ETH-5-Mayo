@@ -1,6 +1,14 @@
+'use client'
 import React from 'react';
 
-import { HomeTable, HomeSelect, MakeOffer, OfferData } from '@/components';
+
+import {
+  HomeTable,
+  HomeSelect,
+  MakeOffer,
+  OfferData,
+  HomeCountDown,
+} from '@/components';
 
 const invoices = [
   {
@@ -45,13 +53,86 @@ const invoices = [
     totalAmount: '$300.00',
     paymentMethod: 'Credit Card',
   },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
+  },
 ];
 function Page() {
   return (
-    <main className='grid gap-4 justify-center items-start homeContainer w-full min-h-screen px-10 pt-10'>
+    <main className='grid gap-4 justify-center items-start homeContainer w-full h-screen pt-20 pb-4 px-10'>
       <HomeSelect />
+      <HomeCountDown futureTimestamp={1733200773000} />
       <HomeTable invoices={invoices} />
-      <div className='homeSidebar flex flex-col justify-center items-center gap-4'>
+      <div className='homeSidebar flex flex-col justify-center items-center gap-4 h-full'>
         <MakeOffer />
         <OfferData />
       </div>
