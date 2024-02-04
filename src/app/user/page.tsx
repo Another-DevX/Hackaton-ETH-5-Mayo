@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { useNumbers } from '@/hooks';
+import { DividerHorizontalIcon } from '@radix-ui/react-icons';
 import CountDown from 'count-down-react';
 import { motion } from 'framer-motion';
 import { formatUnits } from 'viem';
@@ -60,37 +61,39 @@ function Page() {
     hours: number;
     minutes: number;
     seconds: number;
-  }) => (
-    <div
-      suppressHydrationWarning
-      className='flex h-full justify-center items-center space-x-4'
-    >
-      <div className='text-center '>
-        <span suppressHydrationWarning className='text-4xl font-semibold '>
-          {days}
-        </span>
-        <p className='text-sm text-gray-400'>Day(s)</p>
+  }) => {
+    return (
+      <div
+        suppressHydrationWarning
+        className='flex h-full justify-center items-center space-x-4'
+      >
+        <div className='text-center '>
+          <span suppressHydrationWarning className='text-4xl font-semibold '>
+            {days}
+          </span>
+          <p className='text-sm text-gray-400'>Day(s)</p>
+        </div>
+        <div className='text-center'>
+          <span suppressHydrationWarning className='text-4xl font-semibold '>
+            {hours}
+          </span>
+          <p className='text-sm text-gray-400'>Hour(s)</p>
+        </div>
+        <div className='text-center'>
+          <span suppressHydrationWarning className='text-4xl font-semibold'>
+            {minutes}
+          </span>
+          <p className='text-sm text-gray-400'>Minute(s)</p>
+        </div>
+        <div className='text-center'>
+          <span suppressHydrationWarning className='text-4xl font-semibold '>
+            {seconds}
+          </span>
+          <p className='text-sm text-gray-400'>Second(s)</p>
+        </div>
       </div>
-      <div className='text-center'>
-        <span suppressHydrationWarning className='text-4xl font-semibold '>
-          {hours}
-        </span>
-        <p className='text-sm text-gray-400'>Hour(s)</p>
-      </div>
-      <div className='text-center'>
-        <span suppressHydrationWarning className='text-4xl font-semibold'>
-          {minutes}
-        </span>
-        <p className='text-sm text-gray-400'>Minute(s)</p>
-      </div>
-      <div className='text-center'>
-        <span suppressHydrationWarning className='text-4xl font-semibold '>
-          {seconds}
-        </span>
-        <p className='text-sm text-gray-400'>Second(s)</p>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <motion.main

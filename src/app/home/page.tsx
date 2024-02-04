@@ -37,6 +37,7 @@ function Page() {
       <HomeSelect />
       {data && (
         <HomeCountDown
+          data={data ? (data[0].result as TAuctionData[]) : []}
           futureTimestamp={Number(data[1].result as unknown as bigint)}
         />
       )}
@@ -45,7 +46,9 @@ function Page() {
         <OfferData data={dataMock} />
         <MakeOffer
           minTicks={data ? (data[2].result as unknown as bigint) : BigInt(0)}
-          minValuePerTick={data ? (data[3].result as unknown as bigint) : BigInt(0)}
+          minValuePerTick={
+            data ? (data[3].result as unknown as bigint) : BigInt(0)
+          }
         />
       </div>
     </motion.main>
