@@ -1,6 +1,8 @@
 ### Smart Contract Repo
 https://github.com/tomasCalletce/5dmayo-contracts
 
+![Cherry Pitch](Asssets/Cherry_Pitch.jpg)
+
 # Cherry🍒
 With Cherry🍒 sell your future income and obtain the capital you need to grow your business without suffering the friction and bias of traditional financing.
 
@@ -9,7 +11,7 @@ With Cherry🍒 sell your future income and obtain the capital you need to grow 
 - **Limited Access to Financial Resources:** "Emerging businesses often face barriers to accessing financing, limiting their ability to grow and prosper."
 - **Transparency Challenge:** "The lack of transparency in traditional financial processes creates uncertainty for startups and investors."
 
-## Solution: Cherry 🍒
+## The Solution: Cherry 🍒
 - **Cherry as a Financial Bridge:** "Cherry acts as a bridge, allowing startups to overcome financial limitations by selling future revenue in innovative ways."
 - **Blockchain as a Decentralized Solution:** "Cherry uses blockchain technology to create decentralized auctions, offering transparency and trust in the sale of future income."
 
@@ -18,7 +20,9 @@ With Cherry🍒 sell your future income and obtain the capital you need to grow 
 - **Auctions Contract:** Buyers place their bids, and compete for an allocation of the future revenues.
 - **Split Fees Contract:** User claim their fees participation.
 
-## How it Works:
+## How Cherry Works
 Auction Start ---> Potential Buyers Place Bids ---> Auction End ---> Winners Claim FRCs ---> Protocol  Generate the Real Revenues ---> FRCs Holders burn it and receive  his share of the Revenue
+![How Cherry Works](https://hackmd.io/_uploads/BJ6D5An96.png)
 
-
+# Cherrynizate🍒
+![Cherrynizat](Asssets/Cherry_Pitch.jpg)
