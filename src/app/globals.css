@@ -75,4 +75,7 @@
   .shadowCustom {
     box-shadow: 0 0 20px hsl(270, 75%, 15%), 0 0 1px hsl(285, 75%, 15%) !important;
   }
+  .bg-gradient {
+    background: var(--gradient);
+  }
 }
