@@ -18,7 +18,7 @@ function Header() {
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            class='icon icon-tabler icon-tabler-cherry-filled'
+            className='icon icon-tabler icon-tabler-cherry-filled'
             width='44'
             height='44'
             viewBox='0 0 24 24'
