@@ -1,5 +1,7 @@
-# Cherry🍒
+### Smart Contract Repo
+https://github.com/tomasCalletce/5dmayo-contracts
 
+# Cherry🍒
 With Cherry🍒 sell your future income and obtain the capital you need to grow your business without suffering the friction and bias of traditional financing.
 
 ## The Problem
@@ -18,3 +20,5 @@ With Cherry🍒 sell your future income and obtain the capital you need to grow 
 
 ## How it Works:
 Auction Start ---> Potential Buyers Place Bids ---> Auction End ---> Winners Claim FRCs ---> Protocol  Generate the Real Revenues ---> FRCs Holders burn it and receive  his share of the Revenue
+
+
