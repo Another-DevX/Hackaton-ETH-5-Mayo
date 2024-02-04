@@ -20,9 +20,8 @@ With Cherry🍒 sell your future income and obtain the capital you need to grow 
 - **Auctions Contract:** Buyers place their bids, and compete for an allocation of the future revenues.
 - **Split Fees Contract:** User claim their fees participation.
 
-## How Cherry Works
-Auction Start ---> Potential Buyers Place Bids ---> Auction End ---> Winners Claim FRCs ---> Protocol  Generate the Real Revenues ---> FRCs Holders burn it and receive  his share of the Revenue
-![How Cherry Works](https://hackmd.io/_uploads/BJ6D5An96.png)
+## How Cherry🍒 Works
+![How Cherry Works](Asssets/How_Cherry_Works.jpg)
 
 # Cherrynizate🍒
 ![Cherrynizat](Asssets/Cherry_Pitch.jpg)
