@@ -19,8 +19,10 @@ import { Invoice } from '@/types';
 import { useNumbers, useWeb3 } from '@/hooks';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { Separator } from '@/components/ui/separator';
+import { TAuctionData } from '@/hooks/home/useGetAuctionData';
+import { formatEther, formatUnits } from 'viem';
 
-function HomeTable({ invoices }: { invoices: Invoice[] }) {
+function HomeTable({ invoices }: { invoices: TAuctionData[] }) {
   const { formatFiat } = useNumbers();
   const { formatAddress } = useWeb3();
 
@@ -48,26 +50,28 @@ function HomeTable({ invoices }: { invoices: Invoice[] }) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {invoices.map((invoice) => (
-              <TableRow key={invoice.position}>
-                <TableCell className='font-medium'>
-                  {invoice.position}
+            {invoices.map((invoice, index) => (
+              <TableRow key={index}>
+                <TableCell className='font-medium'>{index + 1}</TableCell>
+                <TableCell>
+                  {formatFiat(
+                    Number(formatUnits(invoice.amountToPayPerTick, 6))
+                  )}
                 </TableCell>
-                <TableCell>{formatFiat(invoice.value)}</TableCell>
-                <TableCell>{invoice.ticks}</TableCell>
+                <TableCell>{Number(invoice.orderSizeInTicks)}</TableCell>
                 <TableCell>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
-                        {formatAddress(invoice.address)}
+                        {formatAddress(invoice.receiver)}
                       </TooltipTrigger>
                       <TooltipContent>
                         <div className='flex flex-row gap-2  justify-center items-center'>
                           <span className='text-sm font-semibold'>
-                            {invoice.address}
+                            {invoice.receiver}
                           </span>
                           <button
-                            onClick={() => handleOnCopy(invoice.address)}
+                            onClick={() => handleOnCopy(invoice.receiver)}
                             className='border-[1px] rounded-md p-1'
                           >
                             <FontAwesomeIcon icon={faCopy} />

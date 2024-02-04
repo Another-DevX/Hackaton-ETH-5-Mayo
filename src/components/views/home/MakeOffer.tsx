@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -23,6 +23,8 @@ import { useAccount } from 'wagmi';
 import { Address } from 'viem';
 import { AuctionHouseAbi } from '@/constants';
 import { useMakeOffer } from '@/hooks/home/useMakeOffer';
+import { useToast } from '@/components/ui/use-toast';
+import { ReloadIcon } from '@radix-ui/react-icons';
 const something = {
   value: 1,
   ticks: 1,
@@ -33,7 +35,7 @@ type Inputs = {
 };
 
 function MakeOffer() {
-  const { writeAsync } = useMakeOffer();
+  const { writeAsync, isLoading } = useMakeOffer();
   const { address } = useAccount();
   const form = useForm<Inputs>();
   async function onSubmit(values: Inputs) {
@@ -114,7 +116,16 @@ function MakeOffer() {
                 </FormItem>
               )}
             />
-            <Button type='submit'>Submit</Button>
+            <Button disabled={isLoading} type='submit'>
+              {isLoading ? (
+                <>
+                  <ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
+                  <p>Loading...</p>
+                </>
+              ) : (
+                'Submit'
+              )}
+            </Button>
           </form>
         </Form>
       </CardContent>

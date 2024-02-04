@@ -12,6 +12,8 @@ import {
 } from '@/components';
 import { Address } from 'viem';
 import { useMock } from '@/mocks';
+import { useGetAuctionData } from '@/hooks';
+import { TAuctionData } from '@/hooks/home/useGetAuctionData';
 
 const invoices = Array.from({ length: 10 }, (_, i) => ({
   position: i + 1,
@@ -31,7 +33,7 @@ const dataMock = {
 };
 
 function Page() {
-  const isLoading = useMock();
+  const { data, isLoading } = useGetAuctionData();
 
   if (isLoading) return <SkeletonHome />;
 
@@ -42,9 +44,11 @@ function Page() {
       className='grid gap-4 justify-center items-start homeContainer w-full h-screen pt-20 pb-4 px-10'
     >
       <HomeSelect />
-      <HomeCountDown futureTimestamp={1733200773000} />
-      <HomeTable invoices={invoices} />
-      <div className='homeSidebar flex flex-col justify-start items-center gap-4  overflow-y-scroll h-full'>
+      {data && (
+        <HomeCountDown futureTimestamp={Number(data[1].result as unknown as bigint)} />
+      )}
+      <HomeTable invoices={data ? (data[0].result as TAuctionData[]) : []} />
+      <div className='homeSidebar p-2 flex flex-col justify-start items-center gap-4  overflow-y-scroll h-full'>
         <OfferData data={dataMock} />
         <MakeOffer />
       </div>

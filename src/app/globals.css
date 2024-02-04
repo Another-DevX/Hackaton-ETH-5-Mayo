@@ -4,66 +4,42 @@
 
 @layer base {
   :root {
-    --background: 7, 44%, 96%;
-    --foreground: 240 10% 3.9%;
+    /* Name: custom color palette
+       Author: Ilias Ism
+       URL: https://gradient.page */
 
-    --card: 6, 52%, 55%, 5%;
-    --card-foreground: 240 10% 3.9%;
+    /* CSS: .bg-gradient { background: var(--gradient) } */
+    --gradient: linear-gradient(to top left, #da22ff, #9733ee);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --background: 308 65% 4.56%;
+    --foreground: 308 10% 97.85%;
 
-    --primary: 6, 52%, 55%;
-    --primary-foreground: 0 0% 98%;
+    --muted: 308 50% 17.099999999999998%;
+    --muted-foreground: 308 10% 55.7%;
 
-    --secondary: 6, 56%, 73%;
-    --secondary-foreground: 240 5.9% 10%;
+    --popover: 308 45% 7.409999999999999%;
+    --popover-foreground: 308 10% 97.85%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --card: 308 45% 7.409999999999999%;
+    --card-foreground: 308 10% 97.85%;
 
-    --accent: 6, 60%, 63%;
-    --accent-foreground: 240 5.9% 10%;
+    --border: 308 50% 17.099999999999998%;
+    --input: 308 50% 17.099999999999998%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --primary: 308 100% 57%;
+    --primary-foreground: 308 10% 5.699999999999999%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --secondary: 308 50% 17.099999999999998%;
+    --secondary-foreground: 308 10% 97.85%;
 
-    --radius: 0.5rem;
-    
-  }
-
-  .dark {
-    --background: 7, 43%, 4%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 6, 52%, 45%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 6, 56%, 27%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 6, 60%, 37%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 308 50% 17.099999999999998%;
+    --accent-foreground: 308 10% 97.85%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 308 10% 97.85%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --ring: 308 100% 57%;
+    --radius: 0.5rem;
   }
 }
 
@@ -95,5 +71,8 @@
   }
   .homeCountdown {
     grid-area: countdown;
+  }
+  .shadowCustom {
+    box-shadow: 0 0 20px hsl(270, 75%, 15%), 0 0 1px hsl(285, 75%, 15%) !important;
   }
 }
