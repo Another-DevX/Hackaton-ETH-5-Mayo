@@ -1,2 +1,4 @@
 import AuctionHouseAbi from './abis/AuctionHouse.abi.json'
-export { AuctionHouseAbi }
+import FRCertificateAbi from './abis/FRCertoficate.abi.json'
+
+export { AuctionHouseAbi, FRCertificateAbi }

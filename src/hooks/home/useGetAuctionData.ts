@@ -1,4 +1,5 @@
 import { AuctionHouseAbi } from '@/constants'
+import { amplify } from '@/context/Web3Modal'
 import { Address } from 'viem'
 import { useContractReads } from 'wagmi'
 
@@ -12,25 +13,34 @@ function useGetAuctionData () {
   const constructListQuery = {
     address: process.env.NEXT_PUBLIC_SUBNET_CONTRACT as Address,
     abi: AuctionHouseAbi as any,
-    functionName: 'constructList'
+    functionName: 'constructList',
+    chainId: amplify.id
   }
   const expirationQuery = {
     address: process.env.NEXT_PUBLIC_SUBNET_CONTRACT as Address,
     abi: AuctionHouseAbi as any,
-    functionName: 'expiration'
+    functionName: 'expiration',
+    chainId: amplify.id
   }
   const minTicksPerOrderQuery = {
     address: process.env.NEXT_PUBLIC_SUBNET_CONTRACT as Address,
     abi: AuctionHouseAbi as any,
-    functionName: 'minTicksPerOrder'
+    functionName: 'minTicksPerOrder',
+    chainId: amplify.id
   }
   const minValuePerTickQuery = {
     address: process.env.NEXT_PUBLIC_SUBNET_CONTRACT as Address,
     abi: AuctionHouseAbi as any,
-    functionName: 'minContributionPerTick'
+    functionName: 'minContributionPerTick',
+    chainId: amplify.id
   }
   return useContractReads({
-    contracts: [constructListQuery, expirationQuery, minTicksPerOrderQuery,minValuePerTickQuery],
+    contracts: [
+      constructListQuery,
+      expirationQuery,
+      minTicksPerOrderQuery,
+      minValuePerTickQuery
+    ],
     watch: true
   })
 }

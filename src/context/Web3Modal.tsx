@@ -16,7 +16,7 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/37784886'],
 };
 
-const Amplify = {
+export const amplify = {
   id: 78430,
   name: 'Amplify',
   network: 'avalanche',
@@ -31,7 +31,22 @@ const Amplify = {
   },
 } as const satisfies Chain;
 
-const chains = [Amplify];
+export const bulletin = {
+  id: 78431,
+  name: 'Bulletin',
+  network: 'avalanche',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Bulletin',
+    symbol: 'BLT',
+  },
+  rpcUrls: {
+    public: { http: ['https://subnets.avax.network/bulletin/testnet/rpc'] },
+    default: { http: ['https://subnets.avax.network/bulletin/testnet/rpc'] },
+  },
+} as const satisfies Chain;
+
+const chains = [amplify, bulletin];
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
 // 3. Create modal
