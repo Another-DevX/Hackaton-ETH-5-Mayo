@@ -2,7 +2,7 @@
 
 import * as THREE from 'three';
 import React, { useEffect, useRef, useState } from 'react';
-import { Canvas, useFrame, ThreeElements } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { AsciiRenderer } from '@react-three/drei';
 import { useGLTF } from '@react-three/drei';
 
@@ -46,7 +46,7 @@ function ASCIICherry() {
         intensity={Math.PI}
       />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-      <Box url='/models/Cherry.glb' position={[-1.2, 0, 0]} scale={[2, 2, 2]} />
+      <Box url='/models/Cherry.glb' position={[-1, -1, -2]} scale={[2, 2, 2]} />
       <AsciiRenderer fgColor='#ff24e2' bgColor='transparent' />
     </Canvas>
   );
