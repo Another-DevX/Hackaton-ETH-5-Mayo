@@ -10,17 +10,8 @@ import {
   HomeCountDown,
   SkeletonHome,
 } from '@/components';
-import { Address } from 'viem';
-import { useMock } from '@/mocks';
 import { useGetAuctionData } from '@/hooks';
 import { TAuctionData } from '@/hooks/home/useGetAuctionData';
-
-const invoices = Array.from({ length: 10 }, (_, i) => ({
-  position: i + 1,
-  value: Math.floor(Math.random() * 1000),
-  ticks: Math.floor(Math.random() * 1000),
-  address: '0x5E15DBf75d3819Dd9DA31Fc159Ce5bc5f3751AB0' as Address,
-}));
 
 const dataMock = {
   name: 'Aave protocol',
@@ -45,12 +36,19 @@ function Page() {
     >
       <HomeSelect />
       {data && (
-        <HomeCountDown futureTimestamp={Number(data[1].result as unknown as bigint)} />
+        <HomeCountDown
+          futureTimestamp={Number(data[1].result as unknown as bigint)}
+        />
       )}
       <HomeTable invoices={data ? (data[0].result as TAuctionData[]) : []} />
       <div className='homeSidebar p-2 flex flex-col justify-start items-center gap-4  overflow-y-scroll h-full'>
-        <OfferData data={dataMock} />
-        <MakeOffer />
+        <OfferData
+          data={dataMock}
+        />
+        <MakeOffer
+          minTicks={data[2].result as unknown as bigint}
+          minValuePerTick={data[3].result as unknown as bigint}
+        />
       </div>
     </motion.main>
   );

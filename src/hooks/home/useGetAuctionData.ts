@@ -1,6 +1,6 @@
 import { AuctionHouseAbi } from '@/constants'
 import { Address } from 'viem'
-import { useContractRead, useContractReads } from 'wagmi'
+import { useContractReads } from 'wagmi'
 
 export type TAuctionData = {
   amountToPayPerTick: bigint
@@ -19,10 +19,19 @@ function useGetAuctionData () {
     abi: AuctionHouseAbi as any,
     functionName: 'expiration'
   }
-
+  const minTicksPerOrderQuery = {
+    address: process.env.NEXT_PUBLIC_SUBNET_CONTRACT as Address,
+    abi: AuctionHouseAbi as any,
+    functionName: 'minTicksPerOrder'
+  }
+  const minValuePerTickQuery = {
+    address: process.env.NEXT_PUBLIC_SUBNET_CONTRACT as Address,
+    abi: AuctionHouseAbi as any,
+    functionName: 'minContributionPerTick'
+  }
   return useContractReads({
-    contracts: [constructListQuery, expirationQuery],
-    watch: true,
+    contracts: [constructListQuery, expirationQuery, minTicksPerOrderQuery,minValuePerTickQuery],
+    watch: true
   })
 }
 

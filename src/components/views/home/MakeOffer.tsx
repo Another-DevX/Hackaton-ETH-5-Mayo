@@ -20,21 +20,26 @@ import {
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import { useAccount } from 'wagmi';
-import { Address } from 'viem';
-import { AuctionHouseAbi } from '@/constants';
 import { useMakeOffer } from '@/hooks/home/useMakeOffer';
-import { useToast } from '@/components/ui/use-toast';
 import { ReloadIcon } from '@radix-ui/react-icons';
+import { formatUnits } from 'viem';
+import { useNumbers } from '@/hooks';
 const something = {
-  value: 1,
-  ticks: 1,
+  value: 10,
+  ticks: 5,
 };
 type Inputs = {
   valuePerTick: number;
   amountOfTicks: number;
 };
 
-function MakeOffer() {
+function MakeOffer({
+  minTicks,
+  minValuePerTick,
+}: {
+  minTicks: bigint;
+  minValuePerTick: bigint;
+}) {
   const { writeAsync, isLoading } = useMakeOffer();
   const { address } = useAccount();
   const form = useForm<Inputs>();
@@ -52,13 +57,15 @@ function MakeOffer() {
       console.error('Error making offer', e);
     }
   }
+  const { formatFiat } = useNumbers();
   return (
     <Card className='w-full h-full'>
       <CardHeader>
         <CardTitle>Make an offer</CardTitle>
         <CardDescription>
-          Remember that the minimum value per tick is {something.value}, and the
-          smallest number of ticks is {something.ticks}.
+          Remember that the minimum value per tick are{' '}
+          {formatFiat(Number(formatUnits(minValuePerTick, 6)))}, and the
+          smallest number of ticks are {Number(minTicks)}.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -73,8 +80,10 @@ function MakeOffer() {
                   message: 'This field is required',
                 },
                 min: {
-                  value: something.value,
-                  message: `The minimum value per tick is ${something.value}`,
+                  value: Number(formatUnits(minValuePerTick, 6)),
+                  message: `The minimum value per tick are ${formatFiat(
+                    Number(formatUnits(minValuePerTick, 6))
+                  )}`,
                 },
               }}
               render={({ field }) => (
@@ -99,8 +108,8 @@ function MakeOffer() {
                   message: 'This field is required',
                 },
                 min: {
-                  value: something.ticks,
-                  message: `The minimum number of ticks is ${something.ticks}`,
+                  value: Number(minTicks),
+                  message: `The minimum number of ticks are ${Number(minTicks)}`,
                 },
               }}
               render={({ field }) => (
