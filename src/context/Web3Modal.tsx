@@ -54,6 +54,9 @@ createWeb3Modal({
   wagmiConfig,
   projectId,
   chains,
+  themeVariables: {
+    '--w3m-accent': '#ff24e2',
+  },
 });
 
 export function Web3Modal({ children }: { children: React.ReactNode }) {

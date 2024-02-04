@@ -8,47 +8,51 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { useNumbers } from '@/hooks';
-import { DividerHorizontalIcon } from '@radix-ui/react-icons';
+import { useGetUserPositions } from '@/hooks/user/useGetUserPositions';
 import CountDown from 'count-down-react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { formatUnits } from 'viem';
 
 function Page() {
   const { formatFiat } = useNumbers();
+  const isFutureTimestamp = (timestamp: number) => timestamp > Date.now();
+  const { data } = useGetUserPositions();
+  useEffect(() => console.debug(data), [data]);
 
   const mock = [
     {
       name: 'Aave protocol',
       ticks: 120,
       valuePerTick: BigInt(120000000),
-      futureTimestamp: 1707021573000,
+      futureTimestamp: 1727021573000,
     },
     {
       name: 'Aave protocol',
-      ticks: 100,
-      valuePerTick: BigInt(120000000),
+      ticks: 80,
+      valuePerTick: BigInt(7000000),
 
-      futureTimestamp: 1707021573000,
+      futureTimestamp: 1717021573000,
     },
     {
       name: 'Aave protocol',
       ticks: 150,
       valuePerTick: BigInt(120000000),
 
-      futureTimestamp: 1707021573000,
+      futureTimestamp: 1709021573000,
     },
     {
       name: 'Aave protocol',
-      ticks: 120,
-      valuePerTick: BigInt(120000000),
+      ticks: 10,
+      valuePerTick: BigInt(100000000),
 
-      futureTimestamp: 1707021573000,
+      futureTimestamp: 1710021573000,
     },
     {
       name: 'Aave protocol',
-      ticks: 120,
-      valuePerTick: BigInt(120000000),
-      futureTimestamp: 1707021573000,
+      ticks: 800,
+      valuePerTick: BigInt(12000000),
+      futureTimestamp: 1709021343000,
     },
   ];
   const CountdownRenderer = ({
@@ -62,6 +66,9 @@ function Page() {
     minutes: number;
     seconds: number;
   }) => {
+    if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
+      return <p>Ended</p>;
+    }
     return (
       <div
         suppressHydrationWarning
@@ -134,7 +141,11 @@ function Page() {
               <Button variant='gradient' className='w-full'>
                 Transfer
               </Button>
-              <Button disabled variant='gradient' className='w-full'>
+              <Button
+                disabled={isFutureTimestamp(data.futureTimestamp)}
+                variant='gradient'
+                className='w-full'
+              >
                 Burn
               </Button>
             </CardContent>

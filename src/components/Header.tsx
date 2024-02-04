@@ -95,19 +95,6 @@ function Header() {
                 User panel
               </Link>
             </li>
-            <li>
-              <Link
-                href='/auction'
-                className={`block py-2 px-3 rounded md:p-0 ${
-                  isActive('/auction')
-                    ? 'text-white bg-primary md:text-primary/50 md:bg-transparent'
-                    : 'text-white hover:bg-gray-100 dark:text-white md:hover:bg-transparent'
-                }`}
-                aria-current={isActive('/auction') ? 'page' : undefined}
-              >
-                Create auction
-              </Link>
-            </li>
           </ul>
         </div>
         <w3m-button />
