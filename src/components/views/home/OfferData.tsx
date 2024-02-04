@@ -26,7 +26,7 @@ function OfferData({ data }: { data: ProtocolData }) {
       <CardHeader>
         <CardTitle>Protocol info</CardTitle>
         <CardDescription>
-          Here you can find the information about the protocol
+          Aave is an Open Source Protocol to create Non-Custodial Liquidity Markets to earn interest on supplying and borrowing assets with a variable or stable
         </CardDescription>
       </CardHeader>
       <CardContent className='grid grid-cols-2 gap-4'>
