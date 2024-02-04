@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cherry🍒
 
-## Getting Started
+With Cherry🍒 sell your future income and obtain the capital you need to grow your business without suffering the friction and bias of traditional financing.
 
-First, run the development server:
+## The Problem
+- **Difficulties in Traditional Financing:** "Startups struggle to overcome obstacles in conventional financing, with slow processes and onerous requirements."
+- **Limited Access to Financial Resources:** "Emerging businesses often face barriers to accessing financing, limiting their ability to grow and prosper."
+- **Transparency Challenge:** "The lack of transparency in traditional financial processes creates uncertainty for startups and investors."
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Solution: Cherry 🍒
+- **Cherry as a Financial Bridge:** "Cherry acts as a bridge, allowing startups to overcome financial limitations by selling future revenue in innovative ways."
+- **Blockchain as a Decentralized Solution:** "Cherry uses blockchain technology to create decentralized auctions, offering transparency and trust in the sale of future income."
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## The Technology: Auctions + Blockchain
+- **Revenue History:** Protocols revenues history can be their opportunity to grow.
+- **Auctions Contract:** Buyers place their bids, and compete for an allocation of the future revenues.
+- **Split Fees Contract:** User claim their fees participation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## How it Works:
+Auction Start ---> Potential Buyers Place Bids ---> Auction End ---> Winners Claim FRCs ---> Protocol  Generate the Real Revenues ---> FRCs Holders burn it and receive  his share of the Revenue
