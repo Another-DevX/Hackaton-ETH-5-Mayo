@@ -28,7 +28,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className='w-[600px] h-[600px]  absolute bottom-0 right-10'
+        className='w-screen h-screen  absolute bottom-0 right-10'
       >
         <ASCIICherry />
       </motion.div>

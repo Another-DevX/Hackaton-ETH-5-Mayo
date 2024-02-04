@@ -32,7 +32,10 @@ function Box({
 
 function ASCIICherry() {
   return (
-    <Canvas camera={{ position: [5, 5, 3] }}>
+    <Canvas
+      camera={{ position: [0, 0, 5], fov: 60 }} // Configura la cámara según necesites
+      style={{ width: '100%', height: '100%' }}
+    >
       <color attach='background' args={['black']} />
       <ambientLight intensity={Math.PI / 2} />
       <spotLight
@@ -43,7 +46,7 @@ function ASCIICherry() {
         intensity={Math.PI}
       />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-      <Box url='/models/Cherry.glb' position={[-1.2, 0, 0]} scale={[1, 1, 1]} />
+      <Box url='/models/Cherry.glb' position={[-1.2, 0, 0]} scale={[2, 2, 2]} />
       <AsciiRenderer fgColor='#ff24e2' bgColor='transparent' />
     </Canvas>
   );
