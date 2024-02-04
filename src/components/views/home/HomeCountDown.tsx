@@ -51,8 +51,7 @@ function HomeCountDown({
     minutes: number;
     seconds: number;
   }) => {
-    // if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
-    if (true) {
+    if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
       {
         setIsEnded(true);
         return (
