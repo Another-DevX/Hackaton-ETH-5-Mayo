@@ -42,12 +42,10 @@ function Page() {
       )}
       <HomeTable invoices={data ? (data[0].result as TAuctionData[]) : []} />
       <div className='homeSidebar p-2 flex flex-col justify-start items-center gap-4  overflow-y-scroll h-full'>
-        <OfferData
-          data={dataMock}
-        />
+        <OfferData data={dataMock} />
         <MakeOffer
-          minTicks={data[2].result as unknown as bigint}
-          minValuePerTick={data[3].result as unknown as bigint}
+          minTicks={data ? (data[2].result as unknown as bigint) : BigInt(0)}
+          minValuePerTick={data ? (data[3].result as unknown as bigint) : BigInt(0)}
         />
       </div>
     </motion.main>
